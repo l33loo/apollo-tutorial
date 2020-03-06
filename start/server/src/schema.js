@@ -23,7 +23,7 @@ const typeDefs = gql`
 
     type Mission {
       name: String
-      issionPatch(size: PatchSize): String
+      missionPatch(size: PatchSize): String
     }
 
     type TripUpdateResponse {
