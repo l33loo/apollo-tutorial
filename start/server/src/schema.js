@@ -26,6 +26,12 @@ const typeDefs = gql`
       issionPatch(size: PatchSize): String
     }
 
+    type TripUpdateResponse {
+      success: Boolean!
+      message: String
+      launches: [Launch]
+    }
+
     enum PatchSize {
       SMALL
       LARGE
@@ -35,6 +41,12 @@ const typeDefs = gql`
       launches: [Launch]!
       launch(id: ID!): Launch
       me: User
+    }
+
+    type Mutation {
+      bookTrips(launchIds: [ID]!): TripUpdateResponse!
+      cancelTrips(launchId: ID!): TripUpdateResponse!
+      login(email: String): String #login token
     }
 `;
 
