@@ -32,13 +32,22 @@ const typeDefs = gql`
       launches: [Launch]
     }
 
+    type LaunchConnection {
+      cursor: String!
+      hasMore: Boolean!
+      launches: [Launch]!
+    }
+
     enum PatchSize {
       SMALL
       LARGE
     }
 
     type Query {
-      launches: [Launch]!
+      launches(
+        pageSize: Int
+        after: String
+      ): LaunchConnection!
       launch(id: ID!): Launch
       me: User
     }
